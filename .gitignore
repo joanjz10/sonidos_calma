@@ -1,0 +1,8 @@
+# Configuración local de herramientas de IA (skills) — no es parte de la app
+.claude/
+.agents/
+skills-lock.json
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
