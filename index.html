@@ -1,79 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sonidos CalMá</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-   <header>
-    <h1>Sonidos CalMá</h1>
-    <p>Un espacio tranquilo para acompañar tus noches</p>
-</header>
-<main>
-    <section class="respiracion">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Sonidos CalMá</h1>
+      <p>Un espacio tranquilo para acompañar tus noches</p>
+    </header>
+    <main>
+      <section class="respiracion">
         <div class="circulo-respiracion" aria-hidden="true"></div>
-    <p class="instruccion-respiracion">Respira junto con el círculo</p>
+        <p class="instruccion-respiracion">Respira junto con el círculo</p>
+      </section>
 
-    </section>
-
-    <section class="sonidos">
+      <section class="sonidos">
         <h2>Elige el sonido</h2>
         <button class="tarjeta-sonido" data-sonido="lluvia">
-            <span class="icono-sonido" aria-hidden="true">🌧️</span>
-            <span>Lluvia</span>
+          <span class="icono-sonido" aria-hidden="true">🌧️</span>
+          <span>Lluvia</span>
         </button>
 
         <button class="tarjeta-sonido" data-sonido="olas">
-            <span class="icono-sonido" aria-hidden="true">🌊</span>
-            <span>Olas</span>
+          <span class="icono-sonido" aria-hidden="true">🌊</span>
+          <span>Olas</span>
         </button>
 
         <button class="tarjeta-sonido" data-sonido="bosque">
-            <span class="icono-sonido" aria-hidden="true">🌲</span>
-            <span>Bosque</span>
+          <span class="icono-sonido" aria-hidden="true">🌲</span>
+          <span>Bosque</span>
         </button>
 
         <button class="tarjeta-sonido" data-sonido="fuego">
-            <span class="icono-sonido" aria-hidden="true">🔥</span>
-            <span>Fuego</span>
+          <span class="icono-sonido" aria-hidden="true">🔥</span>
+          <span>Fuego</span>
         </button>
 
         <button class="tarjeta-sonido" data-sonido="rosa">
-            <span class="icono-sonido" aria-hidden="true">🎧 </span>
-            <span>Ruido rosa</span>
+          <span class="icono-sonido" aria-hidden="true">🎧 </span>
+          <span>Ruido rosa</span>
         </button>
+      </section>
 
-
-    </section>
-
-    <section class="volumen">
-        
+      <section class="volumen">
         <label for="control-volumen">Volumen</label>
-        <input type="range" id="control-volumen" min="0" max="100" value="50" aria-label="ajustar volumen">
+        <input
+          type="range"
+          id="control-volumen"
+          min="0"
+          max="100"
+          value="50"
+          aria-label="ajustar volumen"
+        />
+      </section>
 
-    </section>
-
-    <section class="temporizador">
-        <h2>Temporizador de sueño</h2>
-
+      <section class="temporizador">
+    <h2>Temporizador de sueño</h2>
+    <div class="botones">
         <button class="boton-temporizador" data-minutos="15">15 min</button>
         <button class="boton-temporizador" data-minutos="30">30 min</button>
         <button class="boton-temporizador" data-minutos="60">60 min</button>
         <button class="boton-temporizador" data-minutos="0">Sin límite</button>
-
-    </section>
-</main>
-<footer>
-    <p>Hecho con calma, para momentos de calma.</p>
-    <p class="privacidad">Esta app no recopila ni envía ningún dato. Todo lo que ajustes queda solo en tu dispositivo.</p>
-    <p class="creditos">
+    </div>
+</section>
+    </main>
+    <footer>
+      <p>Hecho con calma, para momentos de calma.</p>
+      <p class="privacidad">
+        Esta app no recopila ni envía ningún dato. Todo lo que ajustes queda
+        solo en tu dispositivo.
+      </p>
+      <p class="creditos">
         &copy; 2026 ·
-        <a href="https://github.com/joanjz10" target="_blank" rel="noopener noreferrer">Joan Jiménez</a> ·
-        <a href="https://github.com/joanjz10/sonidos_calma" target="_blank" rel="noopener noreferrer">Código en GitHub</a>
-    </p>
-</footer>
-    
-</body>
+        <a
+          href="https://github.com/joanjz10"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Joan Jiménez</a
+        >
+        
+        <a
+          href="https://github.com/joanjz10/sonidos_calma"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Código en GitHub</a
+        >
+      </p>
+    </footer>
+  </body>
 </html>

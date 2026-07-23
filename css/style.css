@@ -1,0 +1,244 @@
+/* colores */
+:root {
+  --color-fondo: #0d1420;
+  --color-texto-principal: #e8edec;
+  --color-texto-secundario: #8a9a98;
+  --color-acento: #5fa8a0;
+  --color-activo: #c9a876;
+
+  /* tipografía */
+  --fuente-titulo: "Fraunces", serif;
+  --fuente-cuerpo: "Inter", sans-serif;
+
+  /* espaciado */
+  --espacio-sm: 1rem;
+  --espacio-md: 2rem;
+  --espacio-lg: 4rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto-principal);
+  font-family: var(--fuente-cuerpo);
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: var(--espacio-lg) var(--espacio-md) var(--espacio-md);
+}
+
+header h1 {
+  font-family: var(--fuente-titulo);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--color-texto-principal);
+}
+
+header p {
+  font-family: var(--fuente-cuerpo);
+  font-size: 1.1rem;
+  color: var(--color-texto-secundario);
+  margin-top: var(--espacio-sm);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espacio-lg);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--espacio-md);
+}
+
+.sonidos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--espacio-sm);
+    margin-top: var(--espacio-md);
+
+}
+
+.sonidos h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.tarjeta-sonido {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    gap:0.5rem;
+    padding: var(--espacio-md);
+    min-width: 100px;
+    border: 1px solid var(--color-texto-secundario);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.tarjeta-sonido:hover {
+    border-color: var(--color-acento);
+    background-color: rgba(95,168,160,0.1);
+}
+
+.tarjeta-sonido:focus-visible{
+    outline: 3px solid var(--color-acento);
+    outline-offset: 2px;
+}
+
+.tarjeta-sonido.activo {
+    border-color: var(--color-activo);
+    background-color: rgba(201,168,118,0.15);
+}
+
+.icono-sonido {
+    font-size: 2rem;
+}
+
+.respiracion {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap: var(--espacio-md);
+}
+
+.circulo-respiracion {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--color-acento);
+    animation: respirar 5s ease-in-out infinite;
+}
+
+@keyframes respirar {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+
+.instruccion-respiracion {
+    color: var(--color-texto-secundario);
+    font-size: 0.95rem;
+}
+
+@media(prefers-reduced-motion: reduce){
+    .circulo-respiracion {
+        animation: none;
+    }
+}
+
+.temporizador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.temporizador h2 {
+    margin-bottom: var(--espacio-sm);
+}
+
+.temporizador .botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.boton-temporizador {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--color-texto-secundario);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.boton-temporizador:hover {
+    border-color: var(--color-acento);
+    background-color: rgba(95, 168, 160, 0.1);
+}
+
+.boton-temporizador:focus-visible {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+}
+
+.boton-temporizador.activo {
+    border-color: var(--color-activo);
+    background-color: rgba(201, 168, 118, 0.15);
+}
+
+footer {
+    text-align: center;
+    padding: var(--espacio-lg) var(--espacio-md);
+    color: var(--color-texto-secundario);
+    font-size: 0.85rem;
+
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer .creditos a {
+    color: var(--color-acento);
+    text-decoration: underline;
+}
+
+footer .creditos a:hover {
+    color: var(--color-activo);
+}
+
+footer .creditos a:focus-visible {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .circulo-respiracion {
+        width: 90px;
+        height: 90px;
+    }
+
+    .tarjeta-sonido {
+        min-width: 80px;
+        padding: var(--espacio-sm);
+    }
+
+    .boton-temporizador {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.9rem;
+    }
+}
