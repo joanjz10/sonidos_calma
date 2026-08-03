@@ -1,6 +1,6 @@
 # Sonidos de Calma
 
-Una app web sencilla para escuchar sonidos relajantes — lluvia, olas, ruido rosa — generados directamente en el navegador. La estoy construyendo para alguien cercano que vive con tinnitus (acúfenos) crónico, y que siente los sonidos más fuertes justo en el silencio de la noche.
+Una app web sencilla para escuchar sonidos relajantes — lluvia, olas, ruido rosa — pensada para acompañar a alguien con tinnitus (acúfenos) crónico, que siente los sonidos más fuertes justo en el silencio de la noche.
 
 ## Por qué este proyecto
 
@@ -10,7 +10,7 @@ Así que decidí construir algo yo mismo en vez de solo recomendarle una app cua
 
 - **Simple de usar** — sin menús raros, botones grandes, cero curva de aprendizaje. Si mi familiar no logra usarla en los primeros 10 segundos, fallé.
 - **Ligera** — nada de frameworks pesados ni cargas lentas.
-- **Funcional sin internet** — una vez que abre la página, no debería depender de conexión ni de archivos de audio pesados.
+- **Funcional sin conexión a internet** — los sonidos son grabaciones reales, pero viven guardadas dentro del propio proyecto (no se transmiten desde ningún servidor externo), así que la app funciona igual con o sin internet una vez que la tienes descargada.
 
 ## Stack que estoy usando
 
@@ -19,12 +19,24 @@ Así que decidí construir algo yo mismo en vez de solo recomendarle una app cua
 | **HTML5 semántico** | Estructura de la página |
 | **CSS3** | Diseño visual, tema oscuro, animaciones |
 | **JavaScript vanilla** | Toda la lógica de la interfaz |
-| **Web Audio API** | Generar los sonidos con código, sin archivos de audio |
+| **Web Audio API** | Reproducir, controlar volumen y aplicar fade in/out a los sonidos |
 | **LocalStorage** | Recordar el último sonido y volumen usados |
 | **Git + GitHub** | Control de versiones |
 | **VS Code + Live Server** | Mi entorno de desarrollo de siempre |
 
-Decidí no usar archivos de audio grabados (.mp3) para los sonidos principales. Todo se genera con código, en tiempo real, usando el Web Audio API. Me pareció la parte más interesante de construir: aprender que el sonido, al final, es solo matemática — números que suben y bajan en el tiempo.
+Al principio decidí no usar archivos de audio grabados, y generar todo con código en tiempo real usando Web Audio API — me pareció la parte más interesante de construir: aprender que el sonido, al final, es solo matemática, números que suben y bajan en el tiempo. Construí un motor completo así (ruido filtrado, gotas con envolvente, olas con LFO), pero al compararlo con grabaciones reales, estas sonaban notablemente más naturales. Decidí priorizar la experiencia de quien va a usar la app por encima de mantenerme fiel al enfoque 100% sintetizado — el motor de síntesis quedó documentado en el historial de Git como parte del proceso.
+
+## Créditos de los sonidos
+
+Todos los sonidos son grabaciones reales, con licencias que permiten uso libre (incluyendo proyectos personales), obtenidas de Freesound.org:
+
+- **Lluvia** — "Rain Ambience" por nick121087 — dominio público.
+- **Olas** — "Ocean Waves.wav" por Noted451 — dominio público.
+- **Bosque** — "Forest birds - ambient seamless loop" por Magnesus — CC0.
+- **Fuego** — "fire crackling loop.wav" por soundofsong — CC0.
+- **Ruido rosa** — "Pink Noise -20dBFS 30 Second.wav" por JarredGibb — CC0.
+
+No es obligatorio dar crédito bajo estas licencias, pero lo hago de todas formas porque me parece justo reconocer el trabajo de quien grabó y compartió estos sonidos.
 
 ## Estructura del proyecto
 
@@ -42,7 +54,13 @@ sonidos-calma/
 │   └── app.js                # Conecta la interfaz con el motor (Fase 4)
 │
 ├── assets/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── sonidos/
+│       ├── sonido_lluvia.wav
+│       ├── sonido_oceano.wav
+│       ├── sonido_bosque.wav
+│       ├── sonido_fuego.wav
+│       └── sonido_rosa.wav
 │
 ├── .claude/skills/
 │   └── sonidos-calma-design/  # Skill propia: tokens de diseño de este proyecto
@@ -64,26 +82,25 @@ Las carpetas de skills (`.claude/` y `.agents/`) no son parte de la app en sí �
 Cada fase la voy cerrando con un commit, y no avanzo a la siguiente sin probar la anterior en el navegador.
 
 ### Fase 1 — HTML semántico
-- [ ] `<header>` con el título y un mensaje de bienvenida cálido.
-- [ ] `<main>` con: círculo de respiración, tarjetas de sonido (Lluvia, Olas, Bosque, Ruido rosa), control de volumen, temporizador de sueño.
-- [ ] `<footer>` simple.
-- [ ] Revisar accesibilidad básica: `lang="es"`, `aria-label` en los botones, `<label>` en el volumen.
+- [x] `<header>` con el título y un mensaje de bienvenida cálido.
+- [x] `<main>` con: círculo de respiración, tarjetas de sonido (Lluvia, Olas, Bosque, Ruido rosa), control de volumen, temporizador de sueño.
+- [x] `<footer>` simple.
+- [x] Revisar accesibilidad básica: `lang="es"`, `aria-label` en los botones, `<label>` en el volumen.
 
 ### Fase 2 — CSS y diseño visual
-- [ ] Paleta de colores en tema oscuro, tonos suaves.
-- [ ] Tipografía legible, tamaños grandes.
-- [ ] Tarjetas de sonido con estado "activo" claro.
-- [ ] Animación del círculo de respiración (pulso lento y constante).
-- [ ] Diseño responsive — pensado primero para celular.
-- [ ] Contraste de color y foco de teclado visibles.
+- [x] Paleta de colores en tema oscuro, tonos suaves.
+- [x] Tipografía legible, tamaños grandes.
+- [x] Tarjetas de sonido con estado "activo" claro.
+- [x] Animación del círculo de respiración (pulso lento y constante).
+- [x] Diseño responsive — pensado primero para celular.
+- [x] Contraste de color y foco de teclado visibles.
 
 ### Fase 3 — Motor de audio (`audio-engine.js`)
-- [ ] `AudioContext`.
-- [ ] Ruido blanco como base.
-- [ ] Filtrar para obtener ruido rosa y ruido marrón (más suaves).
-- [ ] Simular lluvia (ruido filtrado + gotas aleatorias).
-- [ ] Simular olas (ruido modulado con un LFO que sube y baja el volumen).
-- [ ] Fade in/out para que ningún sonido empiece o termine de golpe.
+- [x] `AudioContext`.
+- [x] Construí un motor completo de síntesis por código: ruido blanco, ruido rosa/marrón filtrados, gotas de lluvia con envolvente, olas con LFO, chispas de fuego, y pájaros con osciladores.
+- [x] Comparé el resultado sintetizado contra grabaciones reales, y decidí priorizar las grabaciones por su calidad más natural.
+- [x] Integré 5 grabaciones reales (lluvia, olas, bosque, fuego, ruido rosa), todas con licencias de uso libre.
+- [x] Fade in/out aplicado a las 5 reproducciones, para que ningún sonido empiece o termine de golpe.
 
 ### Fase 4 — Interfaz interactiva (`app.js`)
 - [ ] Clic en una tarjeta → inicia ese sonido y detiene cualquier otro.
