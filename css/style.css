@@ -150,7 +150,7 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .circulo-respiracion {
+  .circulo-respiracion.respirando {
     animation: none;
   }
 }

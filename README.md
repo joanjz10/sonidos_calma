@@ -110,11 +110,11 @@ Cada fase la voy cerrando con un commit, y no avanzo a la siguiente sin probar l
 - [x] Guardar en `localStorage` el último sonido y volumen.
 
 ### Fase 5 — Accesibilidad y pruebas
-- [ ] Navegación solo con teclado.
-- [ ] Prueba real en celular, no solo en el emulador.
-- [ ] Textos legibles sin acercarse a la pantalla.
-- [ ] Respetar `prefers-reduced-motion`.
-- [ ] Favicon y título de pestaña.
+- [x] Navegación solo con teclado.
+- [x] Prueba real en celular, no solo en el emulador.
+- [x] Textos legibles sin acercarse a la pantalla.
+- [x] Respetar `prefers-reduced-motion`.
+- [x] Favicon y título de pestaña.
 
 ### Fase 6 — Publicación
 - [ ] Subir a GitHub.
