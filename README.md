@@ -117,9 +117,9 @@ Cada fase la voy cerrando con un commit, y no avanzo a la siguiente sin probar l
 - [x] Favicon y título de pestaña.
 
 ### Fase 6 — Publicación
-- [ ] Subir a GitHub.
-- [ ] Publicar con GitHub Pages.
-- [ ] Probar el link final en el celular real de mi familiar.
+- [x] Subir a GitHub.
+- [x] Publicar con GitHub Pages.
+- [x] Probar el link final en el celular real de mi familiar.
 - [ ] (Más adelante) Convertirla en PWA para que funcione sin conexión.
 
 ## Cómo correrla localmente
