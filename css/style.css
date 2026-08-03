@@ -126,6 +126,9 @@ main {
   height: 120px;
   border-radius: 50%;
   background-color: var(--color-acento);
+}
+
+.circulo-respiracion.respirando {
   animation: respirar 5s ease-in-out infinite;
 }
 

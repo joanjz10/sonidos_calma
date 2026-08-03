@@ -103,11 +103,11 @@ Cada fase la voy cerrando con un commit, y no avanzo a la siguiente sin probar l
 - [x] Fade in/out aplicado a las 5 reproducciones, para que ningún sonido empiece o termine de golpe.
 
 ### Fase 4 — Interfaz interactiva (`app.js`)
-- [ ] Clic en una tarjeta → inicia ese sonido y detiene cualquier otro.
-- [ ] Volumen conectado en tiempo real.
-- [ ] Temporizador de sueño con fade out al vencer.
-- [ ] Círculo de respiración sincronizado con el estado de reproducción.
-- [ ] Guardar en `localStorage` el último sonido y volumen.
+- [x] Clic en una tarjeta → inicia ese sonido y detiene cualquier otro.
+- [x] Volumen conectado en tiempo real.
+- [x] Temporizador de sueño con fade out al vencer.
+- [x] Círculo de respiración sincronizado con el estado de reproducción.
+- [x] Guardar en `localStorage` el último sonido y volumen.
 
 ### Fase 5 — Accesibilidad y pruebas
 - [ ] Navegación solo con teclado.
